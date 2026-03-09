@@ -10,6 +10,9 @@ i workflows adresujące ograniczenia AI
 ```
 
 # Other useful notes:
+## Environment config
+Install Poetry from https://python-poetry.org/docs/#installation, then run `poetry install` to set up dependencies. Use `poetry shell` (or `poetry run python <script>`) to run scripts inside the virtual environment. Copy `env.dist` to `.env` and fill in your keys.
+
 ## Code to fetch new changes from orginal repo:
 ```
 git fetch upstream
