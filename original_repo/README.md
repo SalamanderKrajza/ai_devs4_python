@@ -58,4 +58,16 @@ Install dependencies:
 npm run lesson1:install
 ```
 
+## Lesson 02
+
+| Example | Run | Description |
+|---------|-----|-------------|
+| `01_02_tool_use` | `npm run lesson2:tool_use` | Function calling with sandboxed filesystem tools |
+| `01_02_tools` | `bun run lesson2:minimal` | Minimal Responses API function-calling demo with a single `get_weather` tool |
+
+Install dependencies:
+
+```bash
+npm run lesson2:install
+```
 
