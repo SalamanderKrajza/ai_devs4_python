@@ -18,3 +18,25 @@ Install Poetry from https://python-poetry.org/docs/#installation, then run `poet
 git fetch upstream
 git subtree pull --prefix=original_repo upstream main --squash
 ```
+
+# Other resources:
+### Models cooperation on token level
+[🤝3mAI: Współpraca między modelami](https://youtu.be/DJI2XC71BlA?list=PL6gb3F2o2zOTJYxrcnWphmGLylXIlVCGJ) [ [ "RelayLLM: Efficient Reasoning via Collaborative Decoding"](https://arxiv.org/abs/2601.05167) ]
+
+[🤝 3mAI: Przed wyruszeniem w drogę trzeba...](https://youtu.be/X2kWqlSnX1E?list=PL6gb3F2o2zOTJYxrcnWphmGLylXIlVCGJ) [ [Token-Level LLM Collaboration via FusionRoute](https://arxiv.org/abs/2601.05106) ]
+
+## Other tools
+→ [SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks](https://arxiv.org/abs/2602.12670)
+
+---
+
+<img src="https://mermaid.js.org/hero-chart-dark.svg" alt="Mermaid Hero Chart" style="max-height:200px; height:auto;" />
+
+→ [Mermaid.js](https://mermaid.js.org/)
+
+---
+
+[Tokenizer online](https://tiktokenizer.vercel.app/)
+
+---
+
