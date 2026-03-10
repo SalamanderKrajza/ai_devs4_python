@@ -13,10 +13,23 @@ i workflows adresujące ograniczenia AI
 ## Environment config
 Install Poetry from https://python-poetry.org/docs/#installation, then run `poetry install` to set up dependencies. Use `poetry shell` (or `poetry run python <script>`) to run scripts inside the virtual environment. Copy `env.dist` to `.env` and fill in your keys.
 
-## Code to fetch new changes from orginal repo:
+# Tasks
+| Task | Link | Tags | Description |
+| --- | --- | --- | --- |
+| S01E01 | [S01E01.py](tasks/S01E01/S01E01.py) | [gemini][structured-output][pandas] | Filter suspects and classify job categories with Gemini |
+| S02E02 | [S02E02.py](tasks/S02E02/S02E02.py) | [agents][function-calling][geocoding][haversine][tqdm] | Find suspect near a power plant with agent tools and geocoding |
+
+## Commands to update `original_repo` subtree:
 ```
+git rm -r original_repo
+git commit -m "tmp remove original_repo"
+
 git fetch upstream
-git subtree pull --prefix=original_repo upstream main --squash
+git subtree add --prefix=original_repo upstream main --squash
+
+# Optional: squash the two commits into one
+git reset --soft HEAD~2
+git commit -m "Update original_repo subtree"
 ```
 
 # Other resources:

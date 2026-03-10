@@ -165,6 +165,30 @@ verify_payload = {"apikey": ai_devs_key, "task": "people", "answer": answers}
 
 
 # --------------------------------------------------------------
+# Save suspects for next task
+# --------------------------------------------------------------
+# Json format:
+suspects_payload = [
+    {
+        "name": item["name"],
+        "surname": item["surname"],
+        "birthYear": item["born"],
+    }
+    for item in answers
+]
+
+suspects_path_json = data_dir / "suspects.json"
+suspects_path_json.write_text(
+    json.dumps(suspects_payload, ensure_ascii=False, indent=2),
+    encoding="utf-8",
+)
+
+# Csv format:
+# suspects_path_csv = data_dir / "suspects.csv"
+# pd.DataFrame(suspects_payload).to_csv(suspects_path_csv, index=False) 
+
+
+# --------------------------------------------------------------
 # Send answer
 # --------------------------------------------------------------
 result = send_verify(verify_payload)
