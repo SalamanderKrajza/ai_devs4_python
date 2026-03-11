@@ -45,7 +45,7 @@ def geocode_location(name: str) -> tuple[float, float]:
     response = requests.get(
         "https://nominatim.openstreetmap.org/search",
         params={"q": query, "format": "json", "limit": 1},
-        headers={"User-Agent": "ai-devs-s02e02"},
+        headers={"User-Agent": "ai-devs-s01e02"},
         timeout=30,
     )
     response.raise_for_status()

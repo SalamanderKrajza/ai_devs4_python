@@ -10,7 +10,7 @@ import requests
 from google import genai
 from google.genai import types
 
-from tasks.commons.task_handler import ai_devs_key, send_verify
+from tasks.commons.task_handler import AI_DEVS_API_KEY, send_verify
 
 
 # --------------------------------------------------------------
@@ -22,7 +22,7 @@ gemini_api_key = os.environ["GEMINI_API_KEY"]
 # --------------------------------------------------------------
 # Get task data
 # --------------------------------------------------------------
-people_url = f"https://hub.ag3nts.org/data/{ai_devs_key}/people.csv"
+people_url = f"https://hub.ag3nts.org/data/{AI_DEVS_API_KEY}/people.csv"
 people_response = requests.get(people_url, timeout=30)
 people_response.raise_for_status()
 df_people = pd.read_csv(StringIO(people_response.text))
@@ -161,7 +161,7 @@ for idx, row in df_candidates.reset_index(drop=True).iterrows():
         }
     )
 
-verify_payload = {"apikey": ai_devs_key, "task": "people", "answer": answers}
+verify_payload = {"apikey": AI_DEVS_API_KEY, "task": "people", "answer": answers}
 
 
 # --------------------------------------------------------------

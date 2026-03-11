@@ -17,7 +17,7 @@ Install Poetry from https://python-poetry.org/docs/#installation, then run `poet
 | Task | Link | Tags | Description |
 | --- | --- | --- | --- |
 | S01E01 | [S01E01.py](tasks/S01E01/S01E01.py) | [gemini][structured-output][pandas] | Filter suspects and classify job categories with Gemini |
-| S02E02 | [S02E02.py](tasks/S02E02/S02E02.py) | [agents][function-calling][geocoding][haversine][tqdm] | Find suspect near a power plant with agent tools and geocoding |
+| S01E02 | [S01E02.py](tasks/S01E02/S01E02.py) | [agents][function-calling][geocoding][haversine][tqdm] | Find suspect near a power plant with agent tools and geocoding |
 
 ## Commands to update `original_repo` subtree:
 ```

@@ -5,7 +5,7 @@ import requests
 
 load_dotenv()
 
-ai_devs_key = os.environ["ai_devs_key"]
+AI_DEVS_API_KEY = os.environ["AI_DEVS_API_KEY"]
 
 def send_verify(payload: dict) -> dict:
     url = "https://hub.ag3nts.org/verify"
