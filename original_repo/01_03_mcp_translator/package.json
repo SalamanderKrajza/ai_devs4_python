@@ -1,0 +1,21 @@
+{
+  "name": "01_03_mcp_translator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP-powered translation agent that watches files and translates to English",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "consola": "^3.4.0",
+    "openai": "^4.104.0",
+    "zod": "^3.24.2"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}

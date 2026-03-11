@@ -32,6 +32,9 @@
     "lesson5:confirmation": "node ./01_05_confirmation/app.js",
     "lesson5:agent": "npm run --prefix ./01_05_agent start",
     "lesson5:agent:db:push": "npm run --prefix ./01_05_agent db:push",
-    "lesson5:agent:db:seed": "npm run --prefix ./01_05_agent db:seed"
+    "lesson5:agent:db:seed": "npm run --prefix ./01_05_agent db:seed",
+    "lesson19:system": "node ./04_04_system/app.js",
+    "lesson19:daily-news": "node ./04_04_system/demo-daily-news.js",
+    "lesson19:examples": "node ./04_04_system/demo-example-queries.js"
   }
 }

@@ -42,8 +42,6 @@ OPENROUTER_API_KEY=your_api_key_here
 OPENAI_API_KEY=your_api_key_here
 ```
 
-If both keys are present, provider defaults to OpenAI. Override with `AI_PROVIDER=openrouter`.
-
 ## Lesson 01
 
 | Example | Run | Description |
@@ -71,3 +69,17 @@ Install dependencies:
 npm run lesson2:install
 ```
 
+## Lesson 03
+
+| Example | Run | Description |
+|---------|-----|-------------|
+| `01_03_mcp_core` | `npm run lesson3:mcp_core` | Core MCP capabilities via stdio transport |
+| `01_03_mcp_native` | `npm run lesson3:mcp_native` | One agent using MCP and native tools together |
+| `01_03_mcp_translator` | `npm run lesson3:mcp_translator` | File translation agent over `files-mcp` |
+| `01_03_upload_mcp` | `npm run lesson3:upload_mcp` | Upload workspace files through MCP servers |
+
+Install dependencies:
+
+```bash
+npm run lesson3:install
+```
