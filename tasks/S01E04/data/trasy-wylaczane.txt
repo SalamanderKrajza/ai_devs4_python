@@ -1,0 +1,24 @@
+Oto informacje o zamkniętych trasach z obrazka:
+
+1. **Kod trasy: X-01**
+   - Przebieg: Gdańsk – Żarnowiec
+   - Powód wyłączenia: NIEJAWNY (Dyrektywa Specjalna 7.7)
+
+2. **Kod trasy: X-02**
+   - Przebieg: Wejherowo – Żarnowiec (odgałęzienie)
+   - Powód wyłączenia: NIEJAWNY (Dyrektywa Specjalna 7.7)
+
+3. **Kod trasy: X-03**
+   - Przebieg: Lębork – Żarnowiec (odgałęzienie pomocnicze)
+   - Powód wyłączenia: NIEJAWNY (Dyrektywa Specjalna 7.7)
+
+4. **Kod trasy: X-04**
+   - Przebieg: Krokowa – Żarnowiec (szlak techniczny)
+   - Powód wyłączenia: NIEJAWNY (Dyrektywa Specjalna 7.7)
+
+5. **Kod trasy: X-05**
+   - Przebieg: Legnica – Jawor
+   - Powód wyłączenia: Zniszczenie mostu na Kaczawie
+
+6. **Kod trasy: X-06**
+  
