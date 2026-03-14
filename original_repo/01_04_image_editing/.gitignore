@@ -1,0 +1,7 @@
+node_modules/
+.env
+workspace/output/*.png
+workspace/output/*.jpg
+workspace/output/*.jpeg
+workspace/output/*.webp
+!workspace/output/SCR_DEMO.jpg

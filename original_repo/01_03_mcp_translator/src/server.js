@@ -89,13 +89,25 @@ export const startHttpServer = (config, getMcpContext) => {
 
   server.listen(config.port, config.host, () => {
     const baseUrl = getPublicBaseUrl(config);
+    const dim = "\x1b[2m";
+    const bold = "\x1b[1m";
+    const cyan = "\x1b[36m";
+    const yellow = "\x1b[33m";
+    const green = "\x1b[32m";
+    const reset = "\x1b[0m";
 
     log.ready(`Server listening on ${baseUrl}`);
-    log.info("Endpoints:");
-    log.endpoint("POST", "/api/chat", "Chat with agent");
-    log.endpoint("POST", "/api/translate", "Translate text");
-    log.info("Example curl:");
-    log.info(`  curl -X POST "${baseUrl}/api/translate" -H "Content-Type: application/json" -d '{"text":"To jest przykladowy tekst po polsku."}'`);
+
+    console.log(`
+${yellow}Files in workspace/translate/ will be translated automatically.${reset}
+${dim}Drop a .md, .txt, .html, or .json file there and watch the output in workspace/translated/.${reset}
+
+${bold}Or translate text directly from another terminal:${reset}
+
+${cyan}  curl -s -X POST "${baseUrl}/api/translate" \\
+    -H "Content-Type: application/json" \\
+    -d '{"text":"To jest przykladowy tekst po polsku."}'${reset}
+`);
   });
 
   return server;

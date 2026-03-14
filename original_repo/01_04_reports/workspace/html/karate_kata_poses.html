@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karate Kata Poses</title>
+
+  <!-- Google Fonts: Lexend + IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS VARIABLES
+       ======================================== */
+    :root {
+      /* Colors */
+      --color-bg: #0d0d0d;
+      --color-surface: #1a1a1a;
+      --color-border: #2a2a2a;
+      --color-text: #e5e5e5;
+      --color-text-secondary: #888888;
+      --color-accent: #6b9fff;
+      --color-success: #4ade80;
+      --color-warning: #fbbf24;
+      --color-error: #f87171;
+
+      /* Typography */
+      --font-sans: "Lexend", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+
+      /* Spacing */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 48px;
+      --space-7: 64px;
+
+      /* Page Layout - CRITICAL FOR PDF */
+      --page-padding-x: 56px;
+      --page-padding-y: 48px;
+      --content-max-width: 720px;
+    }
+
+    /* ========================================
+       PRINT SETUP - MUST COME FIRST
+       ======================================== */
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 14px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ========================================
+       PAGE STRUCTURE - FOR PDF
+       Each .page is one printed page
+       ======================================== */
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: var(--page-padding-y) var(--page-padding-x);
+      background-color: var(--color-bg);
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .page-content {
+      flex: 1;
+    }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 0.75em;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-5);
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-top: var(--space-5);
+    }
+
+    h3 {
+      font-size: 21px;
+      font-weight: 500;
+      margin-top: var(--space-4);
+    }
+
+    p {
+      margin-bottom: 1.25em;
+      max-width: var(--content-max-width);
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    .text-secondary { color: var(--color-text-secondary); }
+    .text-accent { color: var(--color-accent); }
+    .text-center { text-align: center; }
+
+    /* ========================================
+       HEADER / FOOTER (from template patterns)
+       ======================================== */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-5);
+      gap: var(--space-4);
+    }
+
+    .page-header-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+    }
+
+    .page-header-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+
+    .page-footer {
+      margin-top: auto;
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ========================================
+       CUSTOM: cover + pose layout
+       ======================================== */
+    .cover {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+
+    .cover h1 {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: var(--space-4);
+    }
+
+    .cover-kicker {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-3);
+    }
+
+    .cover-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: var(--space-5);
+    }
+
+    .pose {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+
+    figure.pose-figure {
+      margin: 0;
+      padding: var(--space-3);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    figure.pose-figure img {
+      max-width: 100%;
+      max-height: 470px;
+      width: auto;
+      height: auto;
+      display: block;
+      filter: grayscale(100%) contrast(115%) brightness(110%);
+    }
+
+    .pose-notes {
+      max-width: 520px;
+    }
+
+    .pose-title {
+      font-size: 26px;
+      margin-bottom: var(--space-2);
+    }
+
+    .pose-subtitle {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-4);
+    }
+
+    ul.checklist {
+      margin: 0;
+      padding-left: var(--space-4);
+      max-width: none;
+    }
+
+    ul.checklist li {
+      margin-bottom: var(--space-2);
+    }
+
+    .hint {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      background: rgba(107, 159, 255, 0.08);
+      border: 1px solid rgba(107, 159, 255, 0.35);
+      border-radius: 14px;
+      color: var(--color-text);
+    }
+
+    .hint-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-2);
+    }
+
+    /* Avoid ugly breaks */
+    h1, h2, h3, h4 { page-break-after: avoid; }
+    figure { page-break-inside: avoid; }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page">
+    <header class="page-header">
+      <div class="page-header-title">Karate · Kata reference</div>
+      <div class="page-header-meta">2026-02-01</div>
+    </header>
+
+    <div class="page-content cover">
+      <div>
+        <div class="cover-kicker">Simple pose sketches</div>
+        <h1>Four foundational kata stances & guards</h1>
+        <p class="text-secondary" style="max-width: 58ch;">
+          A compact, print-friendly reference for recognizing common karate shapes.
+          Each page highlights one stance with a minimal checklist.
+        </p>
+        <p class="text-secondary text-small" style="font-family: var(--font-mono); max-width: 60ch;">
+          Note: names and mechanics vary slightly by style (Shotokan / Shito-ryu / Wado-ryu / Goju-ryu).
+        </p>
+      </div>
+
+      <div class="cover-card">
+        <h3 style="margin-top:0;">Included poses</h3>
+        <ul class="checklist">
+          <li><strong>Zenkutsu-dachi</strong> + Oi-zuki (front stance, lunge punch)</li>
+          <li><strong>Kokutsu-dachi</strong> + Age-uke (back stance, rising block)</li>
+          <li><strong>Kiba-dachi</strong> (horse stance, chambered fists)</li>
+          <li><strong>Neko-ashi-dachi</strong> + Shuto kamae (cat stance, knifehand guard)</li>
+        </ul>
+        <div class="hint">
+          <div class="hint-title">How to use</div>
+          Compare your silhouette to the sketch first, then check feet, knees, hips, and guard.
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div>Karate kata poses</div>
+      <div>1 / 5</div>
+    </footer>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <header class="page-header">
+      <div class="page-header-title">Karate · Kata poses</div>
+      <div class="page-header-meta">01 — Zenkutsu-dachi</div>
+    </header>
+
+    <div class="page-content pose">
+      <figure class="pose-figure">
+        <img src="/Users/overment/playground/devs/01_04_reports/workspace/output/kata_pose_01_zenkutsu_dachi_whitebg_1769976644351.jpg" alt="Zenkutsu-dachi with oi-zuki sketch" />
+      </figure>
+
+      <div class="pose-notes">
+        <div class="pose-subtitle">Stance + technique</div>
+        <div class="pose-title">Zenkutsu-dachi · Oi-zuki</div>
+        <p class="text-secondary">A long forward stance used to drive distance and momentum into a straight punch.</p>
+        <h3>Key checkpoints</h3>
+        <ul class="checklist">
+          <li>Front knee bent (tracking over toes), rear leg straight and active.</li>
+          <li>Hips square-ish to the front; torso upright (no forward collapse).</li>
+          <li>Feet on two rails (not a tightrope), stable base front-to-back.</li>
+          <li>Front fist punches on centerline; rear fist chambers at the hip.</li>
+        </ul>
+        <div class="hint">
+          <div class="hint-title">Common fix</div>
+          If the stance feels wobbly, widen the stance laterally (two-rail alignment) before making it longer.
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div>Karate kata poses</div>
+      <div>2 / 5</div>
+    </footer>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page">
+    <header class="page-header">
+      <div class="page-header-title">Karate · Kata poses</div>
+      <div class="page-header-meta">02 — Kokutsu-dachi</div>
+    </header>
+
+    <div class="page-content pose">
+      <figure class="pose-figure">
+        <img src="/Users/overment/playground/devs/01_04_reports/workspace/output/kata_pose_02_kokutsu_dachi_whitebg_1769976644913.jpg" alt="Kokutsu-dachi with age-uke sketch" />
+      </figure>
+
+      <div class="pose-notes">
+        <div class="pose-subtitle">Stance + technique</div>
+        <div class="pose-title">Kokutsu-dachi · Age-uke</div>
+        <p class="text-secondary">A rear-weighted stance that supports turning and angled defense.</p>
+        <h3>Key checkpoints</h3>
+        <ul class="checklist">
+          <li>Most weight on the back leg; front foot light and ready.</li>
+          <li>Hips and shoulders slightly bladed (not fully sideways, not square).</li>
+          <li>Front knee relaxed (not locked); back knee carries the load.</li>
+          <li>Blocking forearm rises to protect the head line; other fist chambers.</li>
+        </ul>
+        <div class="hint">
+          <div class="hint-title">Common fix</div>
+          If you drift backward, shorten the stance and keep the torso vertical over the rear hip.
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div>Karate kata poses</div>
+      <div>3 / 5</div>
+    </footer>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page">
+    <header class="page-header">
+      <div class="page-header-title">Karate · Kata poses</div>
+      <div class="page-header-meta">03 — Kiba-dachi</div>
+    </header>
+
+    <div class="page-content pose">
+      <figure class="pose-figure">
+        <img src="/Users/overment/playground/devs/01_04_reports/workspace/output/kata_pose_03_kiba_dachi_whitebg_1769976643074.jpg" alt="Kiba-dachi sketch" />
+      </figure>
+
+      <div class="pose-notes">
+        <div class="pose-subtitle">Stance</div>
+        <div class="pose-title">Kiba-dachi</div>
+        <p class="text-secondary">A low, wide stance for lateral stability and hip-driven techniques.</p>
+        <h3>Key checkpoints</h3>
+        <ul class="checklist">
+          <li>Feet wide; knees push outward in line with toes.</li>
+          <li>Pelvis neutral; chest lifted; avoid leaning forward.</li>
+          <li>Weight centered; imagine sitting straight down between the feet.</li>
+          <li>Elbows back with fists chambered (ready to drive techniques from the hip).</li>
+        </ul>
+        <div class="hint">
+          <div class="hint-title">Common fix</div>
+          If your knees cave in, reduce width slightly and focus on externally rotating the hips.
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div>Karate kata poses</div>
+      <div>4 / 5</div>
+    </footer>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div class="page">
+    <header class="page-header">
+      <div class="page-header-title">Karate · Kata poses</div>
+      <div class="page-header-meta">04 — Neko-ashi-dachi</div>
+    </header>
+
+    <div class="page-content pose">
+      <figure class="pose-figure">
+        <img src="/Users/overment/playground/devs/01_04_reports/workspace/output/kata_pose_04_neko_ashi_dachi_whitebg_1769976644596.jpg" alt="Neko-ashi-dachi with shuto kamae sketch" />
+      </figure>
+
+      <div class="pose-notes">
+        <div class="pose-subtitle">Stance + guard</div>
+        <div class="pose-title">Neko-ashi-dachi · Shuto kamae</div>
+        <p class="text-secondary">A compact, rear-weighted stance used for quick shifts, checks, and angled entries.</p>
+        <h3>Key checkpoints</h3>
+        <ul class="checklist">
+          <li>Back leg carries most weight; front foot touches lightly on the ball.</li>
+          <li>Front heel lifted; stance short (ready to step, kick, or slide).</li>
+          <li>Torso tall; hips stable (don’t sit too far back).</li>
+          <li>Open-hand guard: lead hand extended, rear hand near chest.</li>
+        </ul>
+        <div class="hint">
+          <div class="hint-title">Common fix</div>
+          If the front foot gets heavy, bring your center a few centimeters forward while keeping weight mostly rear.
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div>Karate kata poses</div>
+      <div>5 / 5</div>
+    </footer>
+  </div>
+
+</body>
+</html>

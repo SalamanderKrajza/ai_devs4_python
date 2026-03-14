@@ -1,0 +1,121 @@
+{
+  "subject": {
+    "main": "",
+    "details": "",
+    "pose": "Walking pose matching reference: mid-stride, three-quarter view, arms relaxed at sides, one leg forward, natural gait",
+    "orientation": "three-quarter view, facing slightly left",
+    "position": "centered horizontally and vertically",
+    "scale": "full body, occupies 70-80% of frame height"
+  },
+  "style": {
+    "medium": "Cell-shaded 3D illustration with hand-drawn feel",
+    "rendering": {
+      "type": "Cell-shading / toon shading",
+      "shading_levels": "2-3 distinct shade levels per color, no smooth gradients",
+      "edge_detection": "Strong visible outlines separating forms"
+    },
+    "line_work": {
+      "type": "Rough, sketchy outlines with slight variation",
+      "weight": "Medium to heavy, varies naturally along stroke",
+      "quality": "Hand-drawn feel, not perfectly clean, slight wobble",
+      "outline": "Bold dark outlines around all major forms",
+      "inner_lines": "Lighter sketch lines for details and form definition"
+    },
+    "finish": "Illustration quality, stylized not photorealistic"
+  },
+  "color_palette": {
+    "approach": "Flat colors with cell-shaded shadows",
+    "shadow_style": "Hard-edged shadow shapes, not soft gradients",
+    "highlight_style": "Crisp highlight areas, minimal blending",
+    "saturation": "Medium saturation, vibrant but not neon",
+    "rules": [
+      "Use flat base colors for each area",
+      "Add one shadow tone per base color (darker, same hue)",
+      "Optional rim light or highlight as third tone",
+      "Keep shadow edges hard and graphic",
+      "Avoid smooth gradients or realistic rendering"
+    ]
+  },
+  "composition": {
+    "format": "3:4 vertical portrait",
+    "subject_placement": {
+      "horizontal": "Centered",
+      "vertical": "Full body visible, feet near bottom with padding"
+    },
+    "padding": {
+      "top": "10-15%",
+      "bottom": "5-10%",
+      "left": "15%",
+      "right": "15%"
+    },
+    "ground_plane": "Simple ground shadow or subtle surface indication"
+  },
+  "background": {
+    "color": "Simple flat color or very subtle gradient",
+    "texture": "None or minimal paper texture",
+    "elements": "None - clean backdrop to emphasize character",
+    "style": "Matches cell-shaded aesthetic"
+  },
+  "lighting": {
+    "direction": "Upper left, classic three-point feel",
+    "type": "Stylized, graphic",
+    "shadows": "Hard-edged cell-shaded shadows",
+    "rim_light": "Optional bright edge on shadow side for separation"
+  },
+  "technical": {
+    "resolution": "2k",
+    "aspect_ratio": "3:4"
+  },
+  "pose_reference": {
+    "source": "workspace/reference/walking-pose.png",
+    "usage": "Use as pose guidance only - match body position, stance, and gesture",
+    "interpretation": "Character should match the walking pose exactly but rendered in the cell-shaded style"
+  },
+  "constraints": {
+    "must_have": [
+      "Cell-shaded rendering with 2-3 shade levels",
+      "Rough sketchy outlines with hand-drawn quality",
+      "Walking pose matching reference image",
+      "Full body visible in frame",
+      "Hard-edged shadows, no soft gradients",
+      "Bold dark outlines around forms",
+      "3:4 vertical format",
+      "Clean simple background"
+    ],
+    "must_not_have": [
+      "Text or letters",
+      "Photorealistic rendering",
+      "Smooth gradient shading",
+      "Perfect clean vector lines",
+      "Complex detailed background",
+      "Cropped body parts",
+      "Static standing pose (must be walking)",
+      "Anime/manga style (aim for Western illustration)"
+    ]
+  },
+  "negative_prompt": [
+    "text",
+    "words",
+    "letters",
+    "signature",
+    "watermark",
+    "photorealistic",
+    "smooth gradients",
+    "soft shading",
+    "airbrushed",
+    "vector art",
+    "perfect lines",
+    "clean lines",
+    "anime",
+    "manga",
+    "chibi",
+    "complex background",
+    "detailed environment",
+    "standing still",
+    "static pose",
+    "t-pose",
+    "a-pose",
+    "cropped",
+    "partial body"
+  ]
+}

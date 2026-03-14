@@ -1,0 +1,139 @@
+{
+  "intent": "Generate a consistent 'character presentation card' in a fixed cinematic style. The subject fields describe ONLY what the subject is. They must not introduce background, lighting, palette, mood grading, VFX, or environment. Those are locked by this template.",
+  "fill_in_rules": {
+    "subject_main_rules": "Write 3–8 words naming the subject only (e.g., 'male hacker', 'female alchemist', 'android courier', 'ancient knight', 'vintage radio'). No style words. No lighting words. No background words. No camera words. No VFX words. No emotions beyond a single simple adjective if needed.",
+    "subject_details_rules": "Write short concrete physical attributes and wardrobe/props only (materials, clothing items, accessories). Avoid: 'cinematic', 'dramatic', 'studio', 'dark background', 'green rim', 'embers', 'fog', 'smoke', 'glow', 'poster', 'concept art', 'moody', 'photoreal'. If you need action/setting context, encode it as a prop or wear (e.g., 'holding a laptop' instead of 'in a hacking scene').",
+    "subject_pose_rules": "Only pose/body language and gaze direction. Keep it minimal: 'three-quarter, looking left, relaxed shoulders'. Do not mention framing, crop, lighting, background, or effects.",
+    "allowed_words": "Materials (leather, wool, metal, glass), garments (coat, scarf), accessories (glasses, goggles), props (laptop, book), basic pose terms (standing, seated, three-quarter, profile).",
+    "forbidden_words": "cinematic, filmic, studio, green rim, teal, orange glow, embers, smoke, fog, flames, vignette, spotlight, gradient, dark background, bokeh, depth of field, lens, poster, key art, concept art, HDR, oversharpened"
+  },
+  "subject": {
+    "main": "",
+    "details": "",
+    "pose": "",
+    "orientation": "three-quarter view or slight profile; gaze off-camera",
+    "expression": "neutral to focused; understated",
+    "position": "centered; head in upper third",
+    "scale": "subject occupies 65–75% of frame height"
+  },
+  "format": {
+    "aspect_ratio": "1:1 square",
+    "resolution": "2048x2048",
+    "containment": "Hard requirement: full silhouette + rim glow must be fully inside frame with an 8–10% safe margin on every side (no touching edges, no clipping)."
+  },
+  "style_lock": {
+    "render_type": "Cinematic character key-art presentation (realistic CGI/3D look with subtle paintover/retouch).",
+    "finish": "Premium, clean, controlled. Smooth gradients. Subtle film grain. Controlled bloom. No HDR crunch. No oversharpening. No plastic skin/uncanny eyes for humans."
+  },
+  "background_lock": {
+    "base": "Near-black / deep charcoal studio void",
+    "gradient": "Soft top-center spotlight bloom behind subject fading to darker corners (seamless, no banding)",
+    "panel_band": "Subtle mid-frame horizontal tonal band is allowed but must be extremely soft and not read as a horizon line",
+    "no_environment": "No scenery, no weather, no landscapes, no architecture, no clouds, no ocean, no moon, no set dressing"
+  },
+  "lighting_lock": {
+    "identity": "Two-light signature is mandatory: strong emerald-green rim/edge light + warm neutral key light.",
+    "key_light": "Warm/neutral soft key shaping face/main planes; slightly subdued exposure to let rim dominate edges.",
+    "rim_light": {
+      "color": "Pure emerald green (not cyan/blue).",
+      "intensity": "Very strong, clearly visible, edge-defining.",
+      "coverage": "Continuous rim trace along the outer silhouette on the rim side; must outline shoulders/hair/outer contours (or equivalent subject contours).",
+      "spill": "Limited green spill onto the shadow side surfaces is allowed, but the key side remains warm/neutral."
+    },
+    "separation_rule": "Background behind the rim edge must be darker than the rim so the outline reads cleanly.",
+    "bloom_rule": "Tight bloom only on the green rim and brightest highlights; small radius; do not haze the whole frame.",
+    "highlight_rule": "No pure white clipping; brightest highlights are tinted warm or green."
+  },
+  "palette_lock": {
+    "goal": "Restrained cinematic palette: deep charcoals + warm neutrals + dominant emerald green edge light.",
+    "dominant_dark": "#040506",
+    "secondary_dark": "#151A20",
+    "emerald_rim_primary": "#19E27A",
+    "emerald_rim_deep": "#0FB35D",
+    "warm_key_bias": "warm beige/bronze/skin-neutral range (subject-dependent, muted)",
+    "rules": "Green is the most saturated hue in the entire image. Avoid adding other saturated accent colors unless the subject itself requires it (e.g., a red object)."
+  },
+  "signature_effects_lock": {
+    "lower_dissolve": {
+      "presence": "Required",
+      "look": "Bottom of subject dissolves into pure background black (emerging-from-nothing). Organic, slightly irregular fade. Must not look like fog or a platform.",
+      "protected_area": "Do not dissolve into the main focal area; keep head/upper torso (or equivalent focal zone) fully solid."
+    },
+    "particles": {
+      "default": "None",
+      "rule": "Do not add embers/sparks/smoke unless explicitly requested in subject.details as a physical attribute of the subject (not as ambience)."
+    }
+  },
+  "camera_lock": {
+    "lens_feel": "Portrait compression (medium telephoto feel). No wide-angle distortion.",
+    "focus": "Subject tack-sharp, background smooth."
+  },
+  "constraints": {
+    "must_have": [
+      "1:1 square",
+      "single centered hero subject",
+      "near-black studio background with soft spotlight gradient",
+      "very strong emerald-green rim outlining edges",
+      "warm neutral key shaping main planes",
+      "lower dissolve-to-black",
+      "8–10% safe margin, no clipping",
+      "no text/logos/watermarks"
+    ],
+    "must_not_have": [
+      "environment/scenery (ocean, clouds, buildings, landscapes, moons, storms)",
+      "horizon line or ground line",
+      "wide establishing shot framing",
+      "multiple subjects",
+      "cartoon/anime/vector/flat shading",
+      "white/bright backgrounds",
+      "banding/gradient seams/visible vignette ring",
+      "hard cutout edge, haloing, fringing",
+      "overexposure/clipped whites/HDR crunch",
+      "random embers/smoke/fog as ambience"
+    ]
+  },
+  "negative_prompt": [
+    "text",
+    "letters",
+    "logo",
+    "watermark",
+    "signature",
+    "environment",
+    "scenery",
+    "landscape",
+    "seascape",
+    "ocean",
+    "storm clouds",
+    "moon",
+    "horizon line",
+    "ground line",
+    "wide shot",
+    "establishing shot",
+    "busy background",
+    "multiple subjects",
+    "cartoon",
+    "anime",
+    "vector",
+    "flat shading",
+    "white background",
+    "bright background",
+    "rainbow colors",
+    "neon palette",
+    "banding",
+    "gradient seam",
+    "visible vignette ring",
+    "hard cutout",
+    "halo",
+    "fringing",
+    "overexposed",
+    "blown highlights",
+    "hdr",
+    "oversharpened",
+    "plastic skin",
+    "uncanny eyes",
+    "embers",
+    "fire",
+    "smoke",
+    "fog"
+  ]
+}

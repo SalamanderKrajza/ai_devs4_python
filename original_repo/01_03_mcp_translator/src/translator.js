@@ -4,10 +4,11 @@ import { callMcpTool } from "./mcp/client.js";
 import log from "./helpers/logger.js";
 import { logStats } from "./helpers/stats.js";
 
-// Track files currently being translated to prevent duplicates
+const MAX_TRANSLATIONS = 3;
+
 const inProgress = new Set();
-// Track files we've already logged as skipped (to reduce noise)
 const loggedSkipped = new Set();
+let completedCount = 0;
 
 /**
  * Lists files in a directory.
@@ -17,7 +18,7 @@ const listFiles = async (mcpClient, dir, filterByExtension = false) => {
     const result = await callMcpTool(mcpClient, "fs_read", { path: dir, mode: "list" });
     if (!result.entries) return [];
     
-    const getName = (e) => e.name || e.path?.split("/").pop();
+    const getName = (e) => e.name || e.path?.split(/[/\\]/).pop();
     
     return result.entries
       .filter(e => e.kind === "file" || e.type === "file")
@@ -54,7 +55,8 @@ const translateFile = async (filename, mcpClient, mcpTools) => {
 
   try {
     const result = await run(prompt, { mcpClient, mcpTools });
-    log.success(`✅ Translated: ${filename}`);
+    completedCount++;
+    log.success(`✅ Translated: ${filename} (${completedCount}/${MAX_TRANSLATIONS})`);
     logStats();
     return result;
   } catch (error) {
@@ -102,6 +104,10 @@ export const runTranslationLoop = async (mcpClient, mcpTools) => {
       const pending = sourceFiles.filter(f => !translatedFiles.includes(f));
       
       for (const filename of pending) {
+        if (completedCount >= MAX_TRANSLATIONS) {
+          log.warn(`Reached translation limit (${MAX_TRANSLATIONS}). Restart the script to continue.`);
+          return;
+        }
         await translateFile(filename, mcpClient, mcpTools);
       }
     } catch (error) {

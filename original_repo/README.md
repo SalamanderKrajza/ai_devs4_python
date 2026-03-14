@@ -42,6 +42,25 @@ OPENROUTER_API_KEY=your_api_key_here
 OPENAI_API_KEY=your_api_key_here
 ```
 
+If both keys are present, provider defaults to OpenAI. Override with `AI_PROVIDER=openrouter`.
+
+Some Lesson 04 examples also require:
+
+```bash
+GEMINI_API_KEY=your_gemini_key_here
+REPLICATE_API_TOKEN=your_replicate_token_here
+```
+
+For image-generation examples, `OPENROUTER_API_KEY` can be used as the image backend with `google/gemini-3.1-flash-image-preview`. `GEMINI_API_KEY` remains the native fallback, and some media examples still need it for native Gemini-only features.
+
+Some Lesson 05 examples also require:
+
+```bash
+RESEND_API_KEY=re_...
+RESEND_FROM=noreply@yourdomain.com
+SEED_API_KEY=your_optional_seed_token
+```
+
 ## Lesson 01
 
 | Example | Run | Description |
@@ -83,3 +102,45 @@ Install dependencies:
 ```bash
 npm run lesson3:install
 ```
+
+## Lesson 04
+
+| Example | Run | Description |
+|---------|-----|-------------|
+| `01_04_audio` | `npm run lesson4:audio` | Audio transcription, analysis, and TTS with Gemini |
+| `01_04_video` | `npm run lesson4:video` | Video analysis, transcription, and extraction with Gemini |
+| `01_04_generation` | `npm run lesson4:generation` | Interactive video-processing example with Gemini and MCP tools |
+| `01_04_video_generation` | `npm run lesson4:video_generation` | Frame-based video generation with Gemini and Kling |
+| `01_04_reports` | `npm run lesson4:reports` | PDF reports from HTML, local assets, and generated images |
+| `01_04_image_guidance` | `npm run lesson4:image_guidance` | Pose-guided image generation from JSON templates |
+| `01_04_json_image` | `npm run lesson4:json_image` | Token-efficient image generation from JSON prompts |
+| `01_04_image_editing` | `npm run lesson4:image_editing` | Iterative image generation and editing with quality checks |
+| `01_04_image_recognition` | `npm run lesson4:image_recognition` | Vision-based image classification with MCP file operations |
+
+Install dependencies:
+
+```bash
+npm run lesson4:install
+```
+
+## Lesson 05
+
+| Example | Run | Description |
+|---------|-----|-------------|
+| `01_05_confirmation` | `npm run lesson5:confirmation` | Email-sending agent with human-in-the-loop confirmation UI |
+| `01_05_agent` | `npm run lesson5:agent` | API server for agent orchestration, tool execution, and MCP integration |
+
+Install dependencies:
+
+```bash
+npm run lesson5:install
+```
+
+`01_05_agent` requires a one-time database setup before the first run:
+
+```bash
+npm run lesson5:agent:db:push
+npm run lesson5:agent:db:seed
+```
+
+The agent server starts on `http://127.0.0.1:3000` by default. The seed script creates a bearer token `0f47acce-3aa7-4b58-9389-21b2940ecc70` for authentication. You can override the port and other settings via `01_05_agent/.env` (local keys take priority over the root `.env`).
