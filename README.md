@@ -19,6 +19,7 @@ Install Poetry from https://python-poetry.org/docs/#installation, then run `poet
 | S01E01 | [S01E01.py](tasks/S01E01/S01E01.py) | [gemini][structured-output][pandas] | Filter suspects and classify job categories with Gemini |
 | S01E02 | [S01E02.py](tasks/S01E02/S01E02.py) | [agents][function-calling][geocoding][haversine][tqdm] | Find suspect near a power plant with agent tools and geocoding |
 | S01E04 | [S01E04.py](tasks/S01E04/S01E04.py) | [vision][multimodal][api][regex][tqdm] | Build and submit SPK transport declaration from multi-file documentation |
+| S01E05 | [S01E05.py](tasks/S01E05/S01E05.py) | [agents][state-machine][rate-limits][retry][llm-planning][openai] | Activate railway route X-01 via self-documented API with strict rate limits and 503 handling |
 
 ## Commands to update `original_repo` subtree:
 ```

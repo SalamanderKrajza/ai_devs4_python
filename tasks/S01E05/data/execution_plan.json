@@ -1,0 +1,27 @@
+[
+  {
+    "step": 1,
+    "action": "reconfigure",
+    "params": {
+      "route": "X-01"
+    },
+    "description": "Enable reconfigure mode for route X-01."
+  },
+  {
+    "step": 2,
+    "action": "setstatus",
+    "params": {
+      "route": "X-01",
+      "value": "RTOPEN"
+    },
+    "description": "Set route X-01 status to open while in reconfigure mode."
+  },
+  {
+    "step": 3,
+    "action": "save",
+    "params": {
+      "route": "X-01"
+    },
+    "description": "Exit reconfigure mode for route X-01."
+  }
+]
