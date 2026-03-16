@@ -38,8 +38,6 @@ BACKOFF_CAP = 90.0      # max single wait
 JITTER_MAX = 2.0        # random jitter
 MAX_FIX_ATTEMPTS = 3    # max LLM fix attempts per step
 
-print(f"Data dir: {DATA_DIR.resolve()}")
-
 # ------------------------------------------------------------------------------
 # Faza 1: Narzędzia - logging, state, HTTP client
 # ------------------------------------------------------------------------------
