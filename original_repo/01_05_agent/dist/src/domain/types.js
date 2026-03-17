@@ -1,0 +1,4 @@
+/**
+ * Core domain types
+ */
+export {};

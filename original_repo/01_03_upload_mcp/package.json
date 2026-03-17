@@ -1,0 +1,20 @@
+{
+  "name": "01_03_upload_mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP-powered agent that uploads files from workspace using uploadthing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "consola": "^3.4.0",
+    "openai": "^4.104.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}

@@ -1,0 +1,1 @@
+- Adam has short hairs and wears glasses and doesn't have a beard
