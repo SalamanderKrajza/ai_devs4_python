@@ -4,6 +4,16 @@ from pathlib import Path
 
 
 MODEL_PRICING_USD_PER_MILLION = {
+    "gpt-4o-mini": {
+        "input": 0.15,
+        "cached_input": 0.075,
+        "output": 0.60,
+    },
+    "gpt-4o": {
+        "input": 2.50,
+        "cached_input": 1.25,
+        "output": 10.00,
+    },
     "gemini-3.1-flash-lite-preview": {
         "input": 0.25,
         "cached_input": 0.025,
@@ -60,9 +70,7 @@ def extract_gemini_usage_metrics(response: object) -> dict:
 
 def calculate_usage_cost_usd(model_name: str, usage_metrics: dict) -> float:
     """Estimate usage cost in USD using the configured per-model pricing table."""
-    pricing = MODEL_PRICING_USD_PER_MILLION.get(model_name)
-    if pricing is None:
-        return 0.0
+    pricing = MODEL_PRICING_USD_PER_MILLION[model_name]
 
     cached_input_tokens = usage_metrics["cached_input_tokens"]
     input_tokens = max(0, usage_metrics["input_tokens"] - cached_input_tokens)

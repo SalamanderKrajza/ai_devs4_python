@@ -1,0 +1,14 @@
+{
+  "severity_keywords": [
+    "crit",
+    "error",
+    "warn",
+    "warning",
+    "fault",
+    "failure",
+    "trip",
+    "shutdown",
+    "emergency"
+  ],
+  "format_note": "Each log line contains a timestamp, a severity level, and a message describing the event."
+}
