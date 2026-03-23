@@ -1,0 +1,11 @@
+{
+  "vertical_lines": 2,
+  "horizontal_lines": 3,
+  "cols": 3,
+  "rows": 4,
+  "dam_col": 2,
+  "dam_row": 4,
+  "plant_col": 2,
+  "plant_row": 3,
+  "reasoning": "There are 2 internal vertical red dividing lines, creating 3 columns. There are 3 internal horizontal red dividing lines, creating 4 rows. The intensely blue water associated with the dam is at the bottom center of the image, below the main structure, which places the dam in column 2, row 4. The main power plant building is the large central ruined industrial complex; its core lies in the middle-lower central sector, which is column 2, row 3."
+}
