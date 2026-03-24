@@ -138,7 +138,7 @@ else:
             },
         ],
         temperature=0,
-        max_tokens=1000,
+        max_completion_tokens=1000,
     )
 
     vision_text = vision_response.choices[0].message.content.strip()

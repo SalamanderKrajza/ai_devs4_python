@@ -68,6 +68,31 @@ def extract_gemini_usage_metrics(response: object) -> dict:
     }
 
 
+def extract_openai_usage_metrics(response: object) -> dict:
+    """Extract token usage data from OpenAI response (SDK 2.x)."""
+    usage = getattr(response, "usage", None)
+    if usage is None:
+        return {
+            "input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "total_tokens": 0,
+        }
+
+    # SDK 2.x chat completions: prompt_tokens / completion_tokens
+    input_tokens = int(getattr(usage, "prompt_tokens", 0) or getattr(usage, "input_tokens", 0) or 0)
+    output_tokens = int(getattr(usage, "completion_tokens", 0) or getattr(usage, "output_tokens", 0) or 0)
+    details = getattr(usage, "prompt_tokens_details", None) or getattr(usage, "input_tokens_details", None)
+    cached_input_tokens = int(getattr(details, "cached_tokens", 0) or 0) if details else 0
+
+    return {
+        "input_tokens": input_tokens,
+        "cached_input_tokens": cached_input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": input_tokens + output_tokens,
+    }
+
+
 def calculate_usage_cost_usd(model_name: str, usage_metrics: dict) -> float:
     """Estimate usage cost in USD using the configured per-model pricing table."""
     pricing = MODEL_PRICING_USD_PER_MILLION[model_name]
