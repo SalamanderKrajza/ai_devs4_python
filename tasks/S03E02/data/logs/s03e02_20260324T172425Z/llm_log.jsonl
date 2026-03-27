@@ -1,0 +1,4 @@
+{"timestamp": "2026-03-24T17:24:46.588998+00:00", "action": "agent_step", "model": "gpt-4o", "usage": {"input_tokens": 400, "cached_input_tokens": 0, "output_tokens": 14, "total_tokens": 414}, "cost_usd": 0.00114, "payload": {"step": 1}}
+{"timestamp": "2026-03-24T17:24:49.065496+00:00", "action": "agent_step", "model": "gpt-4o", "usage": {"input_tokens": 490, "cached_input_tokens": 0, "output_tokens": 67, "total_tokens": 557}, "cost_usd": 0.001895, "payload": {"step": 2}}
+{"timestamp": "2026-03-24T17:24:52.132803+00:00", "action": "agent_step", "model": "gpt-4o", "usage": {"input_tokens": 636, "cached_input_tokens": 0, "output_tokens": 89, "total_tokens": 725}, "cost_usd": 0.0024799999999999996, "payload": {"step": 3}}
+{"timestamp": "2026-03-24T17:24:55.188862+00:00", "action": "agent_step", "model": "gpt-4o", "usage": {"input_tokens": 804, "cached_input_tokens": 0, "output_tokens": 96, "total_tokens": 900}, "cost_usd": 0.00297, "payload": {"step": 4}}
